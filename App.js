@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView,StyleSheet, Text, View } from 'react-native';
 import { Images, Profiles } from './App/Themes';
+import Navigation from './App/Components/Navigation';
+import Card from './App/Components/Card';
+import Bottom from './App/Components/Bottom';
+
+
+
 
 export default class App extends React.Component {
   constructor() {
     super();
 
     var haroldProfile = Profiles.harold;
+
     this.state = {
       profileImage: haroldProfile.image,
       name: haroldProfile.name,
@@ -17,10 +24,11 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>This is your workspace. Have fun!</Text>
-        <Text>(Hint: Peep the App folder)</Text>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <Navigation/>
+        <Card/>
+        <Bottom/>
+      </SafeAreaView>
     );
   }
 }
@@ -28,8 +36,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#808080',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
 });
